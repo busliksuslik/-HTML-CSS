@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			
+			if (window.addEventListener) window.addEventListener('load',loadHandler,false);
+
+			function loadHandler(){
+
+			var e  = document.querySelector(".test");
+			var pArray = document.querySelectorAll(".testarray");
+
+			e.style.frontSize = "30px";
+			e.style.color = "red";
+
+			for (let i = 0; i<pArray.length; i ++){
+				pArray[i].style.color = "#FF00FF"
+			}
+
+			}
+		</script>
+		<style type = "text/css">
+			.test{
+				color: Green;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="helloWorld">
+			Item 1
+		</p>
+		<p class="test">
+			Item 1
+		</p>
+		<p >
+			Item 1
+		</p>
+		<p class = "test">
+			Item 1
+		</p>
+		<ul class = "menu">
+			<li class="testarray">item</li>
+			<li class="testarray">item</li>
+			<li>item</li>
+		</ul>
+
+	</body>
+</html>
