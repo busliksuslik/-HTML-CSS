@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			alert("beepboop");
+			var person{};
+			person.name1 = "jhon";
+			person.name2 = "doe";
+			person.age = 30;
+
+			function save(){
+				window.localStorage["data"]= JSON.stringify(person);
+			}
+
+			function read(){
+				var data = JSON.parse(window.localStorage["data"]);
+				alert("name1:" + data.name1 + "\r\nname2" + data.name2 + "\r\nage"+ data.age);
+			}
+			function clearStorage(){
+				window.localStorage.clear();
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+		<button onclick="save()">save</button>
+		<button onclick="read()">Read</button>
+		<button onclick="clearStorage()">Clear</button>
+
+	</body>
+</html>

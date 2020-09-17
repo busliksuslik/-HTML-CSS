@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+
+			function init(){
+				var e = document.getElementById("support");
+				var output = document.getElementById("output")
+				var input = document.getElementById("input")
+
+				if (window.sessionStorage){
+					e.innerHTML = "support sessionStorage";
+				} else {
+					e.innerHTML = "don't support sessionStorage";
+				}
+
+				e.innerHTML+="<br/>";
+
+				if (window.localStorage){
+					e.innerHTML+= "support localStorage";
+				} else {
+					e.innerHTML+= " don't support localStorage";
+				}
+
+				bt1.onclick = function(){
+					window.localStorage.setItem("key1", "Test value");
+					window.localStorage["key2"] = "test value 2";
+					window.localStorage["key3"] = input.value;
+
+				}
+				bt2.onclick = function(){
+					window.localStorage.clear();
+					showStorageContent()
+				}
+				bt3.onclick = function(){
+					showStorageContent();
+				}
+
+			}
+			window.addEventListener("load", init, false);
+
+			function showStorageContent(){
+
+				document.write(window.localStorage.length+ "<br/>");
+
+				for (var i = 0; i < window.localStorage.length; i++){
+
+					document.write(window.localStorage[localStorage.key(i)] + "<br/>");
+				}
+			}
+			function displayEvent(e){
+				var d = document.getElementById("output");
+				var message = "key" + e.key + "<br/>";
+				d.innerHTML = message;
+			}
+
+		</script>
+		<style type = "text/css">
+
+		</style>
+	</head>
+	<body>
+		<div id= "output"></div><br/><br/><br/>
+		<input id = "bt1" type="button" value = "input"/>
+		<input type="text" id = "input">
+		<input id = "bt2" type="button" value = "clear"/>
+		<input id = "bt3" type="button" value = "show"/>
+		<div id= "output"></div>
+
+
+
+
+	</body>
+</html>
