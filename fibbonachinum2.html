@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			window.onload = function(){
+				document.getElementById("startButton").onclick = function(){
+
+					var worker = new Worker("fibonachiWorker.js");
+
+					worker.addEventListener("message", function(e){
+						document.getElementById("output").innerHTML += e.data + "<br />"
+					}, false);
+
+					worker.postMessage("");
+				}
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+		<button id = "startButton">start</button>
+		<p id =  "output"></p>
+	</body>
+</html>
