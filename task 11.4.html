@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS</title>
+	</head>
+	<style>
+		#id1,#id2,#id3{
+			padding: 40px;
+			width: 200px;
+			height: 150px;
+			margin: 10px;
+			border:40px solid #b5e1ae;
+			background-repeat: no-repeat;
+			font-weight: bold;
+		}
+
+		#id1{
+			background-image: url("bg.jpg");
+
+			-moz-background-origin:border-box;
+			-webkit-background-origin:border-box;
+			background-origin:border-box;
+		}
+		#id2{
+			background-image: url("bg.jpg");
+
+			-moz-background-origin: padding-box;
+			-webkit-background-origin: padding-box;
+			background-origin: padding-box;
+		}
+		#id3{
+			background-image: url("bg.jpg");
+
+			-moz-background-origin:content-box;
+			-webkit-background-origin:content-box;
+			background-origin:content-box;
+		}
+
+	</style>
+	<body>
+		<div id="id1">border</div>
+		<div id="id2">padding</div>
+		<div id="id3">content</div>
+
+	</body>
+</html>
