@@ -80,8 +80,8 @@
 			}
 			}
 
-			function draw_point(a, b) {
-				ctx.fillStyle = "#FF00FF";
+			function draw_point(a, b, color) {
+				ctx.fillStyle = color;
 				ctx.fillRect(a, b, 1, 1);
 			}
 
@@ -114,8 +114,11 @@
 				var localy = y;
 				for (var i = 0; i < width; i++) {
 					for (var j = 0; j < height; j++) {
-						if (isInSet(new Complex(localx,localy))) {
-						draw_point(i,j);
+						var loc  = isInSet(new Complex(localx,localy))
+						if (loc == 0) {
+						draw_point(i,j, "#000000");
+						} else if (loc > 0){
+							draw_point(i,j, changeColor(loc));
 						}
 					localy += y_step;
 					}
@@ -164,10 +167,50 @@
 			for (var i = 0; i < iterations; i++) {
 				cons = cons.sum(a, cons.square());
 				if (cons.absSquare() > 4) {
-					return false;
+					return i;
 				}
 			}
-				return true;
+				return 0;
+			}
+			
+			function changeColor(a){
+				var Red = 255;
+				var Green = 0;
+				var Blue = 0;
+				for (var i = 0 ; i < a ; i++){
+					if (Red == 255 && Blue == 0) {
+								Green ++;
+							}
+							if (Green == 255 && Blue == 0) {
+								Red -= 1;
+							}
+							if (Red == 0 && Green == 255) {
+								Blue ++;
+							}
+							if (Red == 0 && Blue == 255) {
+								Green -= 1;
+							}
+							if (Blue == 255 && Green == 0) {
+								Red ++;
+							}
+							if (Red == 255 && Green == 0) {
+								Blue -= 1;
+							}
+							HRed = Red.toString(16);
+							HGreen = Green.toString(16);
+							HBlue = Blue.toString(16);
+							if (HRed.length < 2) {
+								HRed = "0" + HRed;
+							}
+							if (HGreen.length < 2) {
+								HGreen = "0" + HGreen;
+							}
+							if (HBlue.length < 2) {
+								HBlue = "0" + HBlue;
+					}
+				}
+				var color = "#" + HRed + HGreen + HBlue;
+				return color
 			}
 
 
